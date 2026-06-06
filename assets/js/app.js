@@ -57,6 +57,12 @@ function shopifyProductUrl(product) {
   return `${data.brand.shopifySearchUrl}?q=${query}`;
 }
 
+function shopifyCollectionUrl(collection) {
+  if (collection?.shopifyUrl) return collection.shopifyUrl;
+  const query = encodeURIComponent(collection?.name || "S.A.X collection");
+  return `${data.brand.shopifySearchUrl}?q=${query}`;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -321,7 +327,13 @@ function bindProductFilters() {
     button.classList.add("is-active");
     const filter = button.dataset.filter;
     const products = filter === "all" ? data.products : productsForCollection(filter);
-    grid.innerHTML = products.map(productCard).join("");
+    const collection = collectionBySlug(filter);
+    grid.innerHTML = products.length
+      ? products.map(productCard).join("")
+      : `<div class="empty-state">
+          <p>This collection is connected to the live S.A.X Shopify store for current inventory and availability.</p>
+          <a class="button primary" href="${shopifyCollectionUrl(collection)}" target="_blank" rel="noopener">Shop this collection on Shopify</a>
+        </div>`;
   });
 }
 
@@ -332,11 +344,24 @@ function renderCollection(slug) {
   const products = productsForCollection(slug);
   app.innerHTML = `
     ${pageHero("Collection", collection.name, collection.description)}
+    ${renderTrustStrip()}
     <section class="section soft">
       <div class="section-inner">
-        ${sectionHead("Products", `${escapeHtml(collection.name)} <em>favorites</em>`)}
+        ${sectionHead(
+          "Products",
+          `${escapeHtml(collection.name)} <em>favorites</em>`,
+          "",
+          `<a class="button secondary" href="${shopifyCollectionUrl(collection)}" target="_blank" rel="noopener">Shop on Shopify</a>`
+        )}
         <div class="products-grid">
-          ${products.length ? products.map(productCard).join("") : `<div class="empty-state">Products can be added to this collection in assets/js/content.js.</div>`}
+          ${
+            products.length
+              ? products.map(productCard).join("")
+              : `<div class="empty-state">
+                  <p>This collection is connected to the live S.A.X Shopify store for current inventory and availability.</p>
+                  <a class="button primary" href="${shopifyCollectionUrl(collection)}" target="_blank" rel="noopener">Shop this collection on Shopify</a>
+                </div>`
+          }
         </div>
       </div>
     </section>
