@@ -71,8 +71,12 @@ function titleWithItalic(title, italic) {
   return escapeHtml(title).replace(escapeHtml(italic), `<em>${escapeHtml(italic)}</em>`);
 }
 
-function art(initial, label, className = "art") {
-  return `<div class="${className}" data-initial="${escapeHtml(initial)}"><span class="art-label">${escapeHtml(label)}</span></div>`;
+function art(initial, label, className = "art", image = "", alt = "") {
+  const fallback = `<span class="art-label">${escapeHtml(label)}</span>`;
+  const imageTag = image
+    ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(alt || label)}" loading="lazy">`
+    : "";
+  return `<div class="${className}${image ? " has-image" : ""}" data-initial="${escapeHtml(initial)}">${imageTag}${fallback}</div>`;
 }
 
 function pageHero(eyebrow, title, copy) {
@@ -133,7 +137,7 @@ function renderPillars() {
 function collectionCard(collection) {
   return `
     <a class="collection-card" href="${link(`/collections/${collection.slug}`)}">
-      ${art(collection.initial, "Collection")}
+      ${art(collection.initial, "Collection", "art", collection.image, collection.name)}
       <div class="card-body">
         <h3 class="card-title">${escapeHtml(collection.name)}</h3>
         <p>${escapeHtml(collection.short)}</p>
@@ -146,7 +150,7 @@ function collectionCard(collection) {
 function productCard(product) {
   return `
     <a class="product-card" href="${link(`/products/${product.slug}`)}">
-      ${art(product.initial, product.badge)}
+      ${art(product.initial, product.badge, "art", product.image, product.name)}
       <div class="card-body">
         <h3 class="card-title">${escapeHtml(product.name)}</h3>
         <p>${escapeHtml(product.description)}</p>
@@ -175,7 +179,7 @@ function renderHome() {
         </div>
       </div>
       <div class="hero-visual">
-        ${art("S", data.hero.artLabel, "hero-photo")}
+        ${art("S", data.hero.artLabel, "hero-photo", data.hero.image, data.hero.artLabel)}
       </div>
     </section>
     ${renderMarquee()}
@@ -323,7 +327,7 @@ function renderProduct(slug) {
   app.innerHTML = `
     <section class="section soft">
       <div class="section-inner product-detail">
-        ${art(product.initial, product.badge)}
+        ${art(product.initial, product.badge, "art", product.image, product.name)}
         <div>
           <p class="eyebrow">${escapeHtml(collection ? collection.name : "S.A.X product")}</p>
           <h1 class="product-title">${escapeHtml(product.name)}</h1>
@@ -530,7 +534,7 @@ function renderCart() {
       if (!product) return "";
       return `
         <div class="cart-row" data-key="${escapeHtml(item.key)}">
-          ${art(product.initial, product.badge)}
+          ${art(product.initial, product.badge, "art", product.image, product.name)}
           <div>
             <h3 class="card-title">${escapeHtml(product.name)}</h3>
             <p class="body-copy">${escapeHtml([item.color, item.size].filter(Boolean).join(" · "))}</p>
@@ -599,8 +603,8 @@ function renderNotFound() {
 function renderSearchResults(query = "") {
   const q = query.trim().toLowerCase();
   const entries = [
-    ...data.products.map((product) => ({ type: "Product", title: product.name, text: product.description, path: `/products/${product.slug}`, initial: product.initial })),
-    ...data.collections.map((collection) => ({ type: "Collection", title: collection.name, text: collection.description, path: `/collections/${collection.slug}`, initial: collection.initial })),
+    ...data.products.map((product) => ({ type: "Product", title: product.name, text: product.description, path: `/products/${product.slug}`, initial: product.initial, image: product.image })),
+    ...data.collections.map((collection) => ({ type: "Collection", title: collection.name, text: collection.description, path: `/collections/${collection.slug}`, initial: collection.initial, image: collection.image })),
     { type: "Page", title: "Renewal Experience", text: data.pages.renewal.copy, path: "/renewal-experience", initial: "R" },
     { type: "Page", title: "Community", text: data.pages.community.copy, path: "/community", initial: "C" },
     { type: "Page", title: "About", text: data.pages.about.copy, path: "/about", initial: "A" }
@@ -613,7 +617,7 @@ function renderSearchResults(query = "") {
         .map(
           (item) => `
             <a class="search-result" href="${link(item.path)}">
-              ${art(item.initial, item.type)}
+              ${art(item.initial, item.type, "art", item.image, item.title)}
               <div>
                 <p class="small-caps">${escapeHtml(item.type)}</p>
                 <h3 class="card-title">${escapeHtml(item.title)}</h3>
