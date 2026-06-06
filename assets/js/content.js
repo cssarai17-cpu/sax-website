@@ -2,7 +2,8 @@ window.SAX_CONTENT = {
   brand: {
     name: "S.A.X",
     tagline: "Serenity · Affirmation · Xenial",
-    shopifyCartUrl: "https://www.thesaxyway.com/cart"
+    shopifyCartUrl: "https://www.thesaxyway.com/cart",
+    shopifySearchUrl: "https://www.thesaxyway.com/search"
   },
   nav: [
     { label: "Renewal Experience", path: "/renewal-experience" },
