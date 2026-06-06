@@ -56,24 +56,27 @@ window.SAX_CONTENT = {
       name: "Faith Over Fear Collection",
       short: "Bold reminders for courageous faith.",
       initial: "F",
-      image: "https://www.thesaxyway.com/cdn/shop/files/3119360435912459169_2048.jpg?v=1772604118&width=720",
-      description: "A faith-forward apparel collection created for the days when courage has to be chosen again."
+      image: "https://www.thesaxyway.com/cdn/shop/collections/18201514652471850465_2048.jpg?v=1772671267&width=700",
+      description: "A faith-forward apparel collection created for the days when courage has to be chosen again.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/faith-over-fear-collection"
     },
     {
       slug: "god-chose-you",
       name: "God Chose You Collection",
       short: "Identity rooted in scripture.",
       initial: "G",
-      image: "https://www.thesaxyway.com/cdn/shop/files/5383617513213994602_2048.jpg?v=1772605826&width=720",
-      description: "Wearable affirmations that remind you who called you, chose you, and keeps you."
+      image: "https://www.thesaxyway.com/cdn/shop/collections/2476762131965028939_2048.jpg?v=1772671195&width=700",
+      description: "Wearable affirmations that remind you who called you, chose you, and keeps you.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/god-chose-you-collection"
     },
     {
       slug: "god-restores-your-soul",
       name: "God Restores Your Soul",
       short: "Renewal for spirit, mind, and body.",
       initial: "R",
-      image: "https://www.thesaxyway.com/cdn/shop/files/14900729666492708149_2048_custom.jpg?v=1772603198&width=720",
-      description: "Soft, intentional essentials for seasons of restoration and quiet confidence."
+      image: "https://www.thesaxyway.com/cdn/shop/collections/7671774186738086552_2048.jpg?v=1772671292&width=700",
+      description: "Soft, intentional essentials for seasons of restoration and quiet confidence.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/god-restores-your-soul-collection"
     },
     {
       slug: "serenity-wellness-kit",
@@ -81,7 +84,8 @@ window.SAX_CONTENT = {
       short: "Care rituals for peaceful renewal.",
       initial: "S",
       image: "https://www.thesaxyway.com/cdn/shop/collections/pexels-alesiakozik-7796593.jpg?v=1772741899&width=900",
-      description: "A wellness kit experience designed to help you slow down and return to God’s peace."
+      description: "A wellness kit experience designed to help you slow down and return to God’s peace.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/serenity-wellness-kit"
     },
     {
       slug: "facial-kit",
@@ -89,7 +93,8 @@ window.SAX_CONTENT = {
       short: "Gentle care for daily restoration.",
       initial: "C",
       image: "https://www.thesaxyway.com/cdn/shop/collections/skin-care.png?v=1772742010&width=900",
-      description: "A thoughtful facial care ritual that supports the body while inviting peace into the day."
+      description: "A thoughtful facial care ritual that supports the body while inviting peace into the day.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/facial-kit"
     },
     {
       slug: "renewal-women-wear",
@@ -97,15 +102,35 @@ window.SAX_CONTENT = {
       short: "Faith-led pieces for women.",
       initial: "W",
       image: "https://www.thesaxyway.com/cdn/shop/collections/ivGrVUr2vrjVBYZ.webp?v=1772741835&width=900",
-      description: "Warm, refined apparel for women moving with faith, dignity, and peace."
+      description: "Warm, refined apparel for women moving with faith, dignity, and peace.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/renewal-women-wear"
     },
     {
       slug: "renewal-men-wear",
       name: "Renewal Men's Wear",
       short: "Grounded essentials for men.",
       initial: "M",
-      image: "https://www.thesaxyway.com/cdn/shop/files/17469131369507400081_2048.jpg?v=1772608354&width=720",
-      description: "Intentional apparel for men who want clothing that reflects purpose and truth."
+      image: "https://www.thesaxyway.com/cdn/shop/collections/beige-men-wear-calm-and-serene.png?v=1772742499&width=700",
+      description: "Intentional apparel for men who want clothing that reflects purpose and truth.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/renewal-mens-wear"
+    },
+    {
+      slug: "biblical-meditation",
+      name: "Biblical Meditation",
+      short: "Guided moments of reflection rooted in God's Word.",
+      initial: "B",
+      image: "https://www.thesaxyway.com/cdn/shop/collections/pexels-annpoan-5797899_03583390-395d-4ac3-8d45-a0f2ed7863bf.jpg?v=1772742151&width=700",
+      description: "Guided moments of reflection rooted in God's Word to bring peace, clarity, and spiritual grounding.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/biblical-meditation"
+    },
+    {
+      slug: "digital-devotionals",
+      name: "Digital Devotionals",
+      short: "Short faith reflections for daily encouragement.",
+      initial: "D",
+      image: "https://www.thesaxyway.com/cdn/shop/collections/a-want-a-black-person-happy-and-the-beach-and-at-peach_2b57045a-92a4-4d16-ac8c-0e41633f9e84.png?v=1772742175&width=700",
+      description: "Short devotionals and reflections created to strengthen your faith and bring encouragement throughout your day.",
+      shopifyUrl: "https://www.thesaxyway.com/collections/digital-devotionals"
     }
   ],
   products: [
