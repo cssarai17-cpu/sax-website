@@ -145,6 +145,14 @@ function renderPillars() {
   `;
 }
 
+function renderTrustStrip() {
+  return `
+    <section class="trust-strip" aria-label="Store confidence">
+      ${data.trust.map((item) => `<div><span></span>${escapeHtml(item)}</div>`).join("")}
+    </section>
+  `;
+}
+
 function collectionCard(collection) {
   return `
     <a class="collection-card" href="${link(`/collections/${collection.slug}`)}">
@@ -276,6 +284,7 @@ function renderShop() {
   setMeta("Shop Faith-Led Wellness Products", "Browse S.A.X apparel, wellness kits, facial care, and faith-led products for renewal.");
   app.innerHTML = `
     ${pageHero("Shop S.A.X", "Faith-led products for renewal.", "Browse apparel, wellness kits, facial care, and products designed around Serenity, Affirmation, and Xenial living.")}
+    ${renderTrustStrip()}
     <section class="section">
       <div class="section-inner">
         ${sectionHead("Collections", "Shop by <em>collection</em>")}
@@ -368,6 +377,7 @@ function renderProduct(slug) {
               ${product.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("")}
             </ul>
           </div>
+          <div style="margin-top:18px">${renderTrustStrip()}</div>
         </div>
       </div>
     </section>
