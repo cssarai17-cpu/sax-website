@@ -410,6 +410,25 @@ em {
   position: relative;
 }
 
+.art img,
+.hero-photo img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.art.has-image::after,
+.hero-photo.has-image::after {
+  background: linear-gradient(180deg, transparent 52%, rgba(43, 33, 24, 0.46));
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
 .hero-photo {
   aspect-ratio: 4 / 5;
   margin: auto;
@@ -432,13 +451,23 @@ em {
   transform: translate(-50%, -50%);
 }
 
+.art.has-image::before,
+.hero-photo.has-image::before {
+  content: "";
+}
+
 .art-label {
+  background: rgba(253, 250, 246, 0.86);
+  color: var(--deep-brown);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.14em;
   line-height: 1.45;
+  padding: 7px 9px;
   position: relative;
   text-transform: uppercase;
+  width: fit-content;
+  z-index: 2;
 }
 
 .marquee-bar {
