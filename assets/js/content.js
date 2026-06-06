@@ -3,7 +3,8 @@ window.SAX_CONTENT = {
     name: "S.A.X",
     tagline: "Serenity · Affirmation · Xenial",
     shopifyCartUrl: "https://www.thesaxyway.com/cart",
-    shopifySearchUrl: "https://www.thesaxyway.com/search"
+    shopifySearchUrl: "https://www.thesaxyway.com/search",
+    shopifyContactUrl: "https://www.thesaxyway.com/pages/contact-us"
   },
   nav: [
     { label: "Renewal Experience", path: "/renewal-experience" },
@@ -261,19 +262,56 @@ window.SAX_CONTENT = {
       slug: "peace-in-the-middle",
       title: "Finding Peace in the Middle of the Day",
       excerpt: "A short reflection on returning to serenity when the day feels loud.",
-      category: "Serenity"
+      category: "Serenity",
+      body: [
+        "Serenity does not always arrive when everything is quiet. Sometimes it begins with one surrendered breath in the middle of a full day.",
+        "Pause long enough to notice what you have been carrying. Invite God into the pressure, the pace, and the places that feel unfinished.",
+        "Today’s practice: take three slow breaths, speak one scripture-based truth over your mind, and choose one simple act of care before you continue."
+      ]
     },
     {
       slug: "speak-truth-over-your-life",
       title: "Speak Truth Over Your Life",
       excerpt: "Affirmation as a daily practice rooted in scripture, not performance.",
-      category: "Affirmation"
+      category: "Affirmation",
+      body: [
+        "Affirmation is not pretending everything is perfect. It is agreeing with what God says while your circumstances are still becoming.",
+        "The words you repeat shape the room inside you. Choose words that restore identity, courage, patience, and hope.",
+        "Today’s practice: write one sentence that begins with “God says I am...” and return to it whenever fear tries to rename you."
+      ]
     },
     {
       slug: "hospitality-as-care",
       title: "Hospitality as Care",
       excerpt: "How xenial living can turn ordinary spaces into places of ministry.",
-      category: "Xenial"
+      category: "Xenial",
+      body: [
+        "Xenial care is warmth with intention. It is the practice of making people feel received, seen, and safe.",
+        "Hospitality does not require a perfect home or a grand gesture. It can be a thoughtful message, a prepared cup of tea, a gentle question, or a peaceful space.",
+        "Today’s practice: choose one person and offer care in a way that is simple, specific, and sincere."
+      ]
+    }
+  ],
+  policies: [
+    {
+      title: "Shipping",
+      text: "Shipping times, rates, and order delivery details are handled through the live S.A.X Shopify store at checkout.",
+      url: "https://www.thesaxyway.com/policies/shipping-policy"
+    },
+    {
+      title: "Returns",
+      text: "Return eligibility, timelines, and refund details follow the current S.A.X refund policy on Shopify.",
+      url: "https://www.thesaxyway.com/policies/refund-policy"
+    },
+    {
+      title: "Privacy",
+      text: "Customer privacy and data handling are governed by the live S.A.X privacy policy.",
+      url: "https://www.thesaxyway.com/policies/privacy-policy"
+    },
+    {
+      title: "Terms",
+      text: "Store usage, checkout, and purchase terms follow the current S.A.X terms of service.",
+      url: "https://www.thesaxyway.com/policies/terms-of-service"
     }
   ],
   testimonial: {
