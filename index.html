@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>S.A.X | Christian-Centered Wellness & Lifestyle</title>
+    <meta
+      name="description"
+      content="S.A.X is a Christian-centered wellness and lifestyle brand rooted in Serenity, Affirmation, and Xenial care."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./assets/css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#app">Skip to content</a>
+
+    <div class="announcement">Wellness rooted in faith · Serenity. Affirmation. Xenial.</div>
+
+    <header class="site-header">
+      <a class="brand" href="#/">S.A.X</a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="#/renewal-experience">Renewal Experience</a>
+        <a href="#/community">Community</a>
+        <a href="#/shop">Shop</a>
+        <a href="#/about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="searchToggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.7-4.7m2.2-5.3a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
+        </button>
+        <a class="icon-button cart-link" href="#/cart" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h15l-1.7 8.4a2 2 0 0 1-2 1.6H9a2 2 0 0 1-2-1.6L5.2 4H3"/><path d="M9 21h.01M18 21h.01"/></svg>
+          <span id="cartCount">0</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="#/renewal-experience">Renewal Experience</a>
+        <a href="#/community">Community</a>
+        <a href="#/shop">Shop</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
+      </nav>
+    </header>
+
+    <aside class="search-panel" id="searchPanel" aria-hidden="true">
+      <div class="search-card">
+        <div class="search-head">
+          <h2>Search S.A.X</h2>
+          <button class="icon-button" id="searchClose" aria-label="Close search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <label class="search-field">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Try hoodies, serenity, faith, renewal">
+        </label>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </aside>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="footer">
+      <div>
+        <a class="footer-logo" href="#/">S.A.X</a>
+        <p>Christian-centered wellness, apparel, and care experiences.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#/shop">Shop</a>
+        <a href="#/renewal-experience">Renewal</a>
+        <a href="#/community">Community</a>
+        <a href="#/contact">Contact</a>
+        <a href="#/policies">Policies</a>
+      </nav>
+      <p class="footer-copy">© <span id="year"></span> S.A.X. Serenity · Affirmation · Xenial.</p>
+    </footer>
+
+    <script src="./assets/js/content.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
