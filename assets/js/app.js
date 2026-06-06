@@ -494,7 +494,7 @@ function renderContact() {
             <label class="field"><span>Email</span><input required type="email" name="email"></label>
             <label class="field"><span>Topic</span><select name="topic"><option>Order question</option><option>Partnership</option><option>Community</option><option>Renewal Experience</option></select></label>
             <label class="field"><span>Message</span><textarea required name="message"></textarea></label>
-            <button class="button primary" type="submit">Send message</button>
+            <button class="button primary" type="submit">Continue to Shopify contact</button>
           </div>
           <p class="form-note">Your message was copied. Paste it into the Shopify contact form that just opened.</p>
         </form>
