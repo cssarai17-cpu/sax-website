@@ -91,6 +91,17 @@ function pageHero(eyebrow, title, copy) {
   `;
 }
 
+function setMeta(title, description) {
+  document.title = `${title} | S.A.X`;
+  let meta = document.querySelector('meta[name="description"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("name", "description");
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute("content", description);
+}
+
 function sectionHead(eyebrow, title, copy = "", action = "") {
   return `
     <div class="section-head">
@@ -162,6 +173,7 @@ function productCard(product) {
 }
 
 function renderHome() {
+  setMeta("Christian-Centered Wellness & Lifestyle", data.hero.tagline);
   const featured = data.products.filter((product) => product.badge === "Best seller").slice(0, 4);
   app.innerHTML = `
     <section class="hero">
@@ -261,6 +273,7 @@ function renderCommunityBand() {
 }
 
 function renderShop() {
+  setMeta("Shop Faith-Led Wellness Products", "Browse S.A.X apparel, wellness kits, facial care, and faith-led products for renewal.");
   app.innerHTML = `
     ${pageHero("Shop S.A.X", "Faith-led products for renewal.", "Browse apparel, wellness kits, facial care, and products designed around Serenity, Affirmation, and Xenial living.")}
     <section class="section">
@@ -306,6 +319,7 @@ function bindProductFilters() {
 function renderCollection(slug) {
   const collection = collectionBySlug(slug);
   if (!collection) return renderNotFound();
+  setMeta(collection.name, collection.description);
   const products = productsForCollection(slug);
   app.innerHTML = `
     ${pageHero("Collection", collection.name, collection.description)}
@@ -323,6 +337,7 @@ function renderCollection(slug) {
 function renderProduct(slug) {
   const product = productBySlug(slug);
   if (!product) return renderNotFound();
+  setMeta(product.name, product.description);
   const collection = collectionBySlug(product.collection);
   app.innerHTML = `
     <section class="section soft">
@@ -410,6 +425,7 @@ function addToCart(product, quantity, color, size) {
 function renderGenericPage(pageKey) {
   const page = data.pages[pageKey];
   if (!page) return renderNotFound();
+  setMeta(page.title, page.copy);
   app.innerHTML = `
     ${pageHero(page.eyebrow, page.title, page.copy)}
     <section class="section soft">
@@ -450,9 +466,9 @@ function renderCommunityForm() {
           <div class="form-grid">
             <label class="field"><span>Name</span><input required name="name"></label>
             <label class="field"><span>Email</span><input required type="email" name="email"></label>
-            <button class="button primary" type="submit">Join the circle</button>
+            <button class="button primary" type="submit">Continue to contact form</button>
           </div>
-          <p class="form-note">Thank you. Your note is ready to connect to your email platform or form service.</p>
+          <p class="form-note">Your details were copied. Paste them into the Shopify contact form that just opened.</p>
         </form>
       </div>
     </section>
@@ -461,6 +477,7 @@ function renderCommunityForm() {
 
 function renderContact() {
   const page = data.pages.contact;
+  setMeta("Contact S.A.X", page.copy);
   app.innerHTML = `
     ${pageHero(page.eyebrow, page.title, page.copy)}
     <section class="section soft">
@@ -479,7 +496,7 @@ function renderContact() {
             <label class="field"><span>Message</span><textarea required name="message"></textarea></label>
             <button class="button primary" type="submit">Send message</button>
           </div>
-          <p class="form-note">Message saved in this demo. Connect this form to Formspree, Shopify, Klaviyo, or another service when publishing.</p>
+          <p class="form-note">Your message was copied. Paste it into the Shopify contact form that just opened.</p>
         </form>
       </div>
     </section>
@@ -491,6 +508,15 @@ function bindForms() {
   document.querySelectorAll(".sax-form").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+      const formData = new FormData(form);
+      const summary = Array.from(formData.entries())
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n");
+      const message = `S.A.X website inquiry\n\n${summary}`;
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(message).catch(() => {});
+      }
+      window.open(data.brand.shopifyContactUrl, "_blank", "noopener");
       form.querySelector(".form-note")?.classList.add("is-visible");
       form.reset();
     });
@@ -498,6 +524,7 @@ function bindForms() {
 }
 
 function renderBlog() {
+  setMeta("S.A.X Journal", "Faith-led reflections on serenity, affirmation, xenial care, and renewal.");
   app.innerHTML = `
     ${pageHero("Journal", "Reflections for the S.A.X way.", "Short faith-led reflections on peace, identity, hospitality, care, and renewal.")}
     <section class="section soft">
@@ -513,13 +540,13 @@ function renderBlog() {
 function renderPost(slug) {
   const post = data.blog.find((item) => item.slug === slug);
   if (!post) return renderNotFound();
+  setMeta(post.title, post.excerpt);
   app.innerHTML = `
     ${pageHero(post.category, post.title, post.excerpt)}
     <section class="section soft">
       <div class="section-inner" style="max-width:760px">
         <article class="policy-card">
-          <p>${escapeHtml(post.excerpt)}</p>
-          <p>This journal entry is ready for full devotionals, scripture references, audio links, newsletter embeds, and seasonal reflection content as the S.A.X library grows.</p>
+          ${(post.body || [post.excerpt]).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div class="actions"><a class="button secondary" href="${link("/journal")}">Back to journal</a></div>
         </article>
       </div>
@@ -528,6 +555,7 @@ function renderPost(slug) {
 }
 
 function renderCart() {
+  setMeta("Saved Cart", "Review saved S.A.X items and continue purchasing through the live Shopify store.");
   const rows = state.cart
     .map((item) => {
       const product = productBySlug(item.slug);
@@ -583,17 +611,19 @@ function renderCart() {
 }
 
 function renderPolicies() {
+  setMeta("Policies", "S.A.X shipping, returns, privacy, and terms links for customer care.");
   app.innerHTML = `
     ${pageHero("Policies", "Clear care for customers.", "Use this section for shipping, returns, privacy, terms, and customer care policies.")}
     <section class="section soft">
       <div class="section-inner page-grid">
-        ${["Shipping", "Returns", "Privacy", "Terms"].map((title) => `<article class="policy-card"><h3>${title}</h3><p>This ${title.toLowerCase()} policy section is styled and ready for final store language, customer care details, and legal review before launch.</p></article>`).join("")}
+        ${data.policies.map((policy) => `<article class="policy-card"><h3>${escapeHtml(policy.title)}</h3><p>${escapeHtml(policy.text)}</p><a class="button secondary" href="${escapeHtml(policy.url)}" target="_blank" rel="noopener">Read ${escapeHtml(policy.title)} policy</a></article>`).join("")}
       </div>
     </section>
   `;
 }
 
 function renderNotFound() {
+  setMeta("Page Not Found", "Return to the S.A.X homepage.");
   app.innerHTML = `
     ${pageHero("Not found", "This page needs renewal.", "The page you opened does not exist yet.")}
     <section class="section soft"><div class="section-inner"><a class="button primary" href="${link("/")}">Return home</a></div></section>
