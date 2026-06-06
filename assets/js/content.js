@@ -117,6 +117,7 @@ window.SAX_CONTENT = {
       badge: "Best seller",
       initial: "K",
       image: "https://www.thesaxyway.com/cdn/shop/files/17469131369507400081_2048.jpg?v=1772608354&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/son-of-the-king-hat",
       description: "A clean everyday hat with a faith-centered message for identity, humility, and strength.",
       details: ["Adjustable fit", "Embroidered faith statement", "Pairs with everyday essentials"],
       options: { color: ["Brown", "Cream", "Black"], size: ["One size"] }
@@ -129,6 +130,7 @@ window.SAX_CONTENT = {
       badge: "Best seller",
       initial: "G",
       image: "https://www.thesaxyway.com/cdn/shop/files/5383617513213994602_2048.jpg?v=1772605826&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/hoodie-god-chose-you-minimalist-inspirational-pullover",
       description: "A soft reminder that your identity is not accidental. You are chosen with purpose.",
       details: ["Soft fleece feel", "Unisex fit", "Scripture-inspired statement"],
       options: { color: ["Cream", "Deep Brown", "Sand"], size: ["S", "M", "L", "XL", "2XL"] }
@@ -141,6 +143,7 @@ window.SAX_CONTENT = {
       badge: "Best seller",
       initial: "D",
       image: "https://www.thesaxyway.com/cdn/shop/files/8998175525834596274_2048.jpg?v=1772607893&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/daughter-of-the-king-hat",
       description: "A faith-filled accessory made to carry truth into ordinary moments.",
       details: ["Adjustable fit", "Lightweight structure", "Everyday styling"],
       options: { color: ["Cream", "Tan", "Brown"], size: ["One size"] }
@@ -153,6 +156,7 @@ window.SAX_CONTENT = {
       badge: "Best seller",
       initial: "Y",
       image: "https://www.thesaxyway.com/cdn/shop/files/13540731665695689426_2048_custom.jpg?v=1772602664&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/god-chose-you-sweatshirt",
       description: "A comfortable sweatshirt designed as a wearable affirmation of calling and grace.",
       details: ["Relaxed fit", "Soft interior", "Faith affirmation print"],
       options: { color: ["Sand", "Cream", "Sage"], size: ["S", "M", "L", "XL", "2XL"] }
@@ -165,6 +169,7 @@ window.SAX_CONTENT = {
       badge: "New",
       initial: "F",
       image: "https://www.thesaxyway.com/cdn/shop/files/3119360435912459169_2048.jpg?v=1772604118&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/hoodie-faith-over-fear-minimalist-inspirational-pullover",
       description: "A lightweight tee for choosing faith when the day asks for courage.",
       details: ["Soft cotton feel", "Classic fit", "Faith-forward message"],
       options: { color: ["Cream", "Brown"], size: ["S", "M", "L", "XL"] }
@@ -177,6 +182,7 @@ window.SAX_CONTENT = {
       badge: "Ritual kit",
       initial: "S",
       image: "https://www.thesaxyway.com/cdn/shop/files/68ff1001-362c-4417-89ec-0381f085358a.jpg?v=1773122256&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/null-1773121039012",
       description: "A peaceful care kit built around slowing down, breathing deeply, and returning to God.",
       details: ["Guided ritual card", "Self-care essentials", "Gift-ready presentation"],
       options: { color: ["S.A.X Signature"], size: ["One kit"] }
@@ -189,6 +195,7 @@ window.SAX_CONTENT = {
       badge: "Self-care",
       initial: "C",
       image: "https://www.thesaxyway.com/cdn/shop/files/fc961fa5-c872-467f-bf34-6d253be71b1f.jpg?v=1773122512&width=720",
+      shopifyUrl: "https://www.thesaxyway.com/products/null-1773120229456",
       description: "A simple facial care experience for gentle renewal and intentional rest.",
       details: ["Daily care ritual", "Soft renewal focus", "Great for gifting"],
       options: { color: ["S.A.X Signature"], size: ["One kit"] }
@@ -201,6 +208,7 @@ window.SAX_CONTENT = {
       badge: "Women's wear",
       initial: "W",
       image: "https://www.thesaxyway.com/cdn/shop/files/A8LJsTfubZzd5Fa.webp?v=1711505778&width=650",
+      shopifyUrl: "https://www.thesaxyway.com/products/corset-sundress",
       description: "A refined warm-weather piece with graceful structure and effortless ease.",
       details: ["Elegant fit", "Soft styling", "Pairs with renewal accessories"],
       options: { color: ["Cream", "Brown"], size: ["S", "M", "L", "XL"] }
@@ -219,6 +227,12 @@ window.SAX_CONTENT = {
       title: "Xenial Living",
       text: "Hospitality, lifestyle, and care practices that make love visible through everyday service."
     }
+  ],
+  trust: [
+    "Secure Shopify checkout",
+    "Live inventory on thesaxyway.com",
+    "Shipping and returns through S.A.X policies",
+    "Faith-led products and care experiences"
   ],
   pages: {
     about: {
