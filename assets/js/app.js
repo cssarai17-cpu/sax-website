@@ -51,6 +51,12 @@ function productsForCollection(slug) {
   return data.products.filter((product) => product.collection === slug);
 }
 
+function shopifyProductUrl(product) {
+  if (product.shopifyUrl) return product.shopifyUrl;
+  const query = encodeURIComponent(product.name);
+  return `${data.brand.shopifySearchUrl}?q=${query}`;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -145,6 +151,7 @@ function productCard(product) {
         <h3 class="card-title">${escapeHtml(product.name)}</h3>
         <p>${escapeHtml(product.description)}</p>
         <div class="price">${money.format(product.price)}</div>
+        <span class="pill-link">View details</span>
       </div>
     </a>
   `;
@@ -333,7 +340,8 @@ function renderProduct(slug) {
               <span id="qtyValue">1</span>
               <button type="button" data-qty-plus>+</button>
             </div>
-            <button class="button primary" id="addToCart">Add to cart</button>
+            <a class="button primary" href="${shopifyProductUrl(product)}" target="_blank" rel="noopener">Buy on Shopify</a>
+            <button class="button secondary" id="addToCart">Save to cart</button>
           </div>
           <div class="content-card" style="margin-top:28px">
             <h3>Product details</h3>
@@ -527,6 +535,7 @@ function renderCart() {
             <h3 class="card-title">${escapeHtml(product.name)}</h3>
             <p class="body-copy">${escapeHtml([item.color, item.size].filter(Boolean).join(" · "))}</p>
             <p class="price">${money.format(product.price)} × ${item.quantity}</p>
+            <a class="subtle-link" href="${shopifyProductUrl(product)}" target="_blank" rel="noopener">Buy this item on Shopify</a>
             <button type="button" data-remove="${escapeHtml(item.key)}">Remove</button>
           </div>
           <strong>${money.format(product.price * item.quantity)}</strong>
@@ -539,7 +548,7 @@ function renderCart() {
     return product ? sum + product.price * item.quantity : sum;
   }, 0);
   app.innerHTML = `
-    ${pageHero("Cart", "Your S.A.X cart.", "Review your selected items. Final checkout can connect back to Shopify.")}
+    ${pageHero("Cart", "Your S.A.X saved cart.", "Review your saved items, then open each product on Shopify to complete purchase with live inventory and checkout.")}
     <section class="section soft">
       <div class="section-inner cart-layout">
         <div class="cart-list">${rows || `<div class="empty-state"><p>Your cart is empty.</p><a class="button primary" href="${link("/shop")}">Shop now</a></div>`}</div>
@@ -547,8 +556,9 @@ function renderCart() {
           <h3>Order summary</h3>
           <p class="body-copy">Subtotal</p>
           <div class="price" style="font-size:24px">${money.format(subtotal)}</div>
-          <p class="body-copy">Taxes and shipping are calculated during Shopify checkout.</p>
-          <a class="button primary full" href="${data.brand.shopifyCartUrl}">Checkout on Shopify</a>
+          <p class="body-copy">This GitHub preview saves items locally. Purchases are completed on the live Shopify store so inventory, variants, taxes, and shipping stay accurate.</p>
+          <a class="button primary full" href="${data.brand.shopifyCartUrl}">Open Shopify cart</a>
+          <a class="button secondary full" href="${link("/shop")}" style="margin-top:10px">Continue shopping</a>
           <button class="button secondary full" id="clearCart" type="button" style="margin-top:10px">Clear cart</button>
         </aside>
       </div>
